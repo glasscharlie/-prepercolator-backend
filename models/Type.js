@@ -19,11 +19,6 @@ Type.init(
             type: DataTypes.STRING,
             allowNull: false,
         },
-        is_vegan: {
-            type: DataTypes.BOOLEAN,
-            allowNull: true,
-            defaultValue: false,
-        },
     },
     {
         sequelize,timestamps: false,
