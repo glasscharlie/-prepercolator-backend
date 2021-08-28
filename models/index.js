@@ -4,11 +4,11 @@ const Ingredient = require ('./Ingredient');
 
 
 User.hasMany(Drink,{
-    foreignKey: 'user_id',
+    foreignKey: 'drink_id',
 });
 
-Drink.hasMany(User,{
-    foreignKey: 'user_id',
+Drink.belongsTo(User,{
+    through: 'user_id',
 });
 
 
