@@ -1,0 +1,18 @@
+[
+    {
+        "typeName": "shot",
+        "typeUnits": "shots"
+    },
+    {
+        "typeName": "liquid",
+        "typeUnits": "ounces"
+    },
+    {
+        "typeName": "flavor-liquid",
+        "typeUnits": "pumps"
+    },
+    {
+        "typeName": "flavor-powder",
+        "typeUnits": "scoops"
+    }
+]
