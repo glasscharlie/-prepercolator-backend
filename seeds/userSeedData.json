@@ -1,0 +1,20 @@
+[
+  {
+      "username": "God",
+      "email": "god@god.god",
+      "password": "password",
+      "savedDrinks": [],
+      "settings": {
+          "theme": "dark"
+      }
+  },
+  {
+      "username": "admin",
+      "email": "admin@admin.admin",
+      "password": "adminpassword",
+      "savedDrinks":[],
+      "settings": {
+          "theme": "light"
+      }
+  }
+]

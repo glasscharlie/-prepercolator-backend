@@ -22,20 +22,26 @@ Ingredient.init(
                 key: 'id',
             },
         },
-        unit_amount: {
-            type: DataTypes.INTEGER,
-            allowNull: false,
-        },
-        is_steamed: {
+        is_vegan: {
             type: DataTypes.BOOLEAN,
             allowNull: true,
             defaultValue: false,
-        }
+        },
+        // THINK THESE CAN GO IN DRINK?
+        // unit_amount: {
+        //     type: DataTypes.INTEGER,
+        //     allowNull: false,
+        // },
+        // is_steamed: {
+        //     type: DataTypes.BOOLEAN,
+        //     allowNull: true,
+        //     defaultValue: false,
+        // }
     },
     {
         sequelize,
         timestamps: false,
-        freezeTableName,
+        freezeTableName: true,
         underscored: true,
         modelName: 'ingredient'
     }

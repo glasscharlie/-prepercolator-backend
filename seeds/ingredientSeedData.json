@@ -1,0 +1,57 @@
+[
+    {
+        "ingredientName": "Espresso",
+        "ingredientType": 1,
+        "isVegan": true
+    },
+    {
+        "ingredientName": "Whole Milk",
+        "ingredientType": 2,
+        "isVegan": false
+    },
+    {
+        "ingredientName": "Skim Milk",
+        "ingredientType": 2,
+        "isVegan": false
+    },
+    {
+        "ingredientName": "2% Milk",
+        "ingredientType": 2,
+        "isVegan": false
+    },
+    {
+        "ingredientName": "Almond Milk",
+        "ingredientType": 2,
+        "isVegan": true
+    },
+    {
+        "ingredientName": "Oat Milk",
+        "ingredientType": 2,
+        "isVegan": true
+    },
+    {
+        "ingredientName": "Soy Milk",
+        "ingredientType": 2,
+        "isVegan": true
+    },
+    {
+        "ingredientName":"Chocolate Syrup",
+        "ingredientType": 3,
+        "isVegan":false
+    },
+    {
+        "ingredientName": "Vanilla Syrup",
+        "ingredientType": 3,
+        "isVegan": true
+    },
+    {
+        "ingredientName": "Vanilla Powder",
+        "ingredientType": 4,
+        "isVegan": true
+    },
+    {
+        "ingredientName": "Chocolate Powder",
+        "ingredientType": 4,
+        "isVegan": false
+    }
+]
