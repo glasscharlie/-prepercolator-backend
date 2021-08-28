@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/glasscharlie/prepercolator-backend#readme",
   "dependencies": {
+    "bcrypt": "^5.0.1",
     "connect-session-sequelize": "^7.1.1",
     "cors": "^2.8.5",
     "dotenv": "^10.0.0",
