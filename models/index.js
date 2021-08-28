@@ -1,6 +1,7 @@
 const User = require('./User');
 const Drink = require('./Drink');
 const Ingredient = require ('./Ingredient');
+const Type = require ('./Type');
 
 
 User.hasMany(Drink,{
@@ -12,4 +13,4 @@ Drink.belongsTo(User,{
 });
 
 
-module.exports = { User, Drink, Ingredient }
+module.exports = { User, Drink, Ingredient, Type }

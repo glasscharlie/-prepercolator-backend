@@ -42,4 +42,31 @@ router.get("/:id",(req,res)=>{
     })
 })
 
+router.delete("/:id",(req,res)=>{
+    db.Drink.destroy({
+        where:{
+            id:req.params.id,
+           }
+       }).then(delDrink=>{
+           if(delDrink){
+               res.json({
+                   message:"succesful delete!"
+               });
+            } else {
+                res.status(400).json({message:"Drink with that ID doesnt exist"})
+            }
+       }).catch(err=>{
+        console.log(err)
+        res.status(500).json(err)
+    })
+})
+
+router.put('/:id', (req,res)=>{
+    db.Drink.update({
+        where:{
+            id:req.params.id,
+           }
+        })
+    })
+
 module.exports = router;
