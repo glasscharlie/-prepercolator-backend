@@ -1,57 +1,57 @@
 [
     {
-        "ingredientName": "Espresso",
-        "ingredientType": 1,
-        "isVegan": true
+        "ingredient_name": "Espresso",
+        "ingredient_type": 1,
+        "is_vegan": true
     },
     {
-        "ingredientName": "Whole Milk",
-        "ingredientType": 2,
-        "isVegan": false
+        "ingredient_name": "Whole Milk",
+        "ingredient_type": 2,
+        "is_vegan": false
     },
     {
-        "ingredientName": "Skim Milk",
-        "ingredientType": 2,
-        "isVegan": false
+        "ingredient_name": "Skim Milk",
+        "ingredient_type": 2,
+        "is_vegan": false
     },
     {
-        "ingredientName": "2% Milk",
-        "ingredientType": 2,
-        "isVegan": false
+        "ingredient_name": "2% Milk",
+        "ingredient_type": 2,
+        "is_vegan": false
     },
     {
-        "ingredientName": "Almond Milk",
-        "ingredientType": 2,
-        "isVegan": true
+        "ingredient_name": "Almond Milk",
+        "ingredient_type": 2,
+        "is_vegan": true
     },
     {
-        "ingredientName": "Oat Milk",
-        "ingredientType": 2,
-        "isVegan": true
+        "ingredient_name": "Oat Milk",
+        "ingredient_type": 2,
+        "is_vegan": true
     },
     {
-        "ingredientName": "Soy Milk",
-        "ingredientType": 2,
-        "isVegan": true
+        "ingredient_name": "Soy Milk",
+        "ingredient_type": 2,
+        "is_vegan": true
     },
     {
-        "ingredientName":"Chocolate Syrup",
-        "ingredientType": 3,
-        "isVegan":false
+        "ingredient_name":"Chocolate Syrup",
+        "ingredient_type": 3,
+        "is_vegan":false
     },
     {
-        "ingredientName": "Vanilla Syrup",
-        "ingredientType": 3,
-        "isVegan": true
+        "ingredient_name": "Vanilla Syrup",
+        "ingredient_type": 3,
+        "is_vegan": true
     },
     {
-        "ingredientName": "Vanilla Powder",
-        "ingredientType": 4,
-        "isVegan": true
+        "ingredient_name": "Vanilla Powder",
+        "ingredient_type": 4,
+        "is_vegan": true
     },
     {
-        "ingredientName": "Chocolate Powder",
-        "ingredientType": 4,
-        "isVegan": false
+        "ingredient_name": "Chocolate Powder",
+        "ingredient_type": 4,
+        "is_vegan": false
     }
 ]
