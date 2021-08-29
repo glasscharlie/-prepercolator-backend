@@ -20,6 +20,20 @@ Drink.init(
         type: DataTypes.INTEGER, 
         allowNull: true, 
     },
+    is_vegan: {
+        type: DataTypes.BOOLEAN,
+        allowNull: true,
+        defaultValue: false,
+    },
+    unit_amount: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+    },
+    is_steamed: {
+        type: DataTypes.BOOLEAN,
+        allowNull: true,
+        defaultValue: false,
+    }
 },
     {
     sequelize,
