@@ -31,11 +31,20 @@ User.init (
             validate: {
                 len: [8],
             },
-        }, 
+        },
     },
     {
     hooks: {
         beforeCreate: async (newUser) => {
+          try {
+            newUser.password = await bcrypt.hash(newUser.password, 10);
+            return newUser;
+          } catch (err) {
+            console.log(err);
+            return err;
+          }
+        },
+        beforeBulkCreate: async (newUser) => {
           try {
             newUser.password = await bcrypt.hash(newUser.password, 10);
             return newUser;
