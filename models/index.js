@@ -13,4 +13,5 @@ Ingredient.belongsTo(Type)
 Ingredient.hasMany(Drink);
 Drink.belongsTo(Ingredient)
 
+
 module.exports = { User, Drink, Ingredient, Type }

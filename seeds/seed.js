@@ -18,7 +18,6 @@ const seedDatabase = async () => {
 
     await Ingredient.bulkCreate(ingredientSeedData);
 
-
     await Drink.bulkCreate(drinkSeedData);
 
     process.exit(0);
