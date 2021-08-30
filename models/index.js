@@ -8,6 +8,5 @@ User.hasMany(Drink);
 Drink.belongsTo(User);
 
 Ingredient.hasOne(Type);
-Type.belongsTo(Ingredient)
 
 module.exports = { User, Drink, Ingredient, Type }
