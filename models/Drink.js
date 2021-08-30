@@ -12,13 +12,9 @@ Drink.init(
             primaryKey: true,
             autoIncrement: true,
     },
-    name: {
+    drink_name: {
         type: DataTypes.STRING,
         allowNull: false,
-    },
-    rating: {
-        type: DataTypes.INTEGER, 
-        allowNull: true, 
     },
     is_vegan: {
         type: DataTypes.BOOLEAN,
@@ -33,14 +29,14 @@ Drink.init(
         type: DataTypes.BOOLEAN,
         allowNull: true,
         defaultValue: false,
-    }
+    },
 },
     {
     sequelize,
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'Drink',
+    modelName: 'drink',
     }
 )
 

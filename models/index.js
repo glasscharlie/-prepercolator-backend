@@ -7,8 +7,10 @@ const Type = require ('./Type');
 User.hasMany(Drink);
 Drink.belongsTo(User);
 
-Ingredient.hasOne(Type);
+Type.hasMany(Ingredient);
+Ingredient.belongsTo(Type)
 
-Drink.hasMany(Ingredient);
+Ingredient.hasMany(Drink);
+Drink.belongsTo(Ingredient)
 
 module.exports = { User, Drink, Ingredient, Type }

@@ -32,19 +32,16 @@ User.init (
                 len: [8],
             },
         },
+        is_admin: {
+          type: DataTypes.BOOLEAN,
+          allowNull: true,
+          defaultValue: false,
+      },
+
     },
     {
     hooks: {
         beforeCreate: async (newUser) => {
-          try {
-            newUser.password = await bcrypt.hash(newUser.password, 10);
-            return newUser;
-          } catch (err) {
-            console.log(err);
-            return err;
-          }
-        },
-        beforeBulkCreate: async (newUser) => {
           try {
             newUser.password = await bcrypt.hash(newUser.password, 10);
             return newUser;
