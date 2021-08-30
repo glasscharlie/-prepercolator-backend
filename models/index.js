@@ -4,20 +4,11 @@ const Ingredient = require ('./Ingredient');
 const Type = require ('./Type');
 
 
-User.hasMany(Drink,{
-    foreignKey: 'drink_id',
-});
+User.hasMany(Drink);
+Drink.belongsTo(User);
 
-Drink.belongsToMany(User,{
-    through: 'user_id',
-});
+Ingredient.hasOne(Type);
 
-Ingredient.hasOne(Type, {
-    foreignKey: 'ingredient_type'
-});
-
-Drink.hasMany(Ingredient,{
-    foreignKey: 'Ingredient_id',
-});
+Drink.hasMany(Ingredient);
 
 module.exports = { User, Drink, Ingredient, Type }

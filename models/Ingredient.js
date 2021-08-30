@@ -15,13 +15,13 @@ Ingredient.init(
             type: DataTypes.STRING,
             allowNull: false
         },
-        ingredient_type: {
-            type: DataTypes.INTEGER,
-            references: {
-                model: 'type',
-                key: 'id',
-            },
-        },
+        // ingredient_type: {
+        //     type: DataTypes.INTEGER,
+        //     references: {
+        //         model: 'type',
+        //         key: 'id',
+        //     },
+        // },
         is_vegan: {
             type: DataTypes.BOOLEAN,
             allowNull: true,
