@@ -10,9 +10,7 @@ const seedDatabase = async () => {
 
     await sequelize.sync({ force: true });
 
-    await userSeedData.forEach(user => {
-        User.create(user);
-    });
+    await User.create(userSeedData);
 
     await Type.bulkCreate(typeSeedData);
 

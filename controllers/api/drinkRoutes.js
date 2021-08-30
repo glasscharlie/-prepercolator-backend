@@ -14,13 +14,10 @@ router.get("/",(req,res)=>{
 
 router.post("/",(req,res)=>{
     db.Drink.create(req.body).then(drink=>{
-        req.session.drink = {
-            id:drink.id,
-            name:drink.name,
-            is_vegan:drink.is_vegan,
-            is_steamed:drink.is_steamed,
-            unit_amount:drink.unit_amount
-        }
+        console.log(req.body.ingredients)
+        req.body.ingredients.forEach(element => {
+            drink.addIngredient(element)            
+        });
         res.json(drink);
     }).catch(err=>{
         console.log(err);
@@ -31,7 +28,7 @@ router.post("/",(req,res)=>{
 router.get("/:id",(req,res)=>{
     db.Drink.findAll({
         where: {
-            food:req.params.id
+            id:req.params.id
         },
         include:[db.Ingredient]
     }).then(Drink=>{
@@ -62,11 +59,23 @@ router.delete("/:id",(req,res)=>{
 })
 
 router.put('/:id', (req,res)=>{
-    db.Drink.update({
+    db.Drink.update(req.body, {
         where:{
             id:req.params.id,
            }
-        })
-    })
+        }).then (db.drinkIngredients.update(req.body, {
+            where:{
+                id:req.params.id,
+               }
+            }))
+        .then(drink => {
+                console.log(drink)
+                res.send(drink)
+            }).catch(err=>{
+                console.log(err)
+                res.status(500).json(err)
+            })
+            }) 
+
 
 module.exports = router;

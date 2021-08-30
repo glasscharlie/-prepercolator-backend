@@ -1,14 +1,4 @@
-[
-  {
-      "username": "God",
-      "email": "god@god.god",
-      "password": "password",
-      "is_admin":false,
-      "savedDrinks": [],
-      "settings": {
-          "theme": "dark"
-      }
-  },
+
   {
       "username": "admin",
       "email": "admin@admin.admin",
@@ -19,4 +9,3 @@
           "theme": "light"
       }
   }
-]

@@ -21,7 +21,7 @@ Drink.init(
         allowNull: true,
         defaultValue: false,
     },
-    unit_amount: {
+    size: {
         type: DataTypes.INTEGER,
         allowNull: false,
     },
