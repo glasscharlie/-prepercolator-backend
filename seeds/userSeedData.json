@@ -4,8 +4,6 @@
       "email": "admin@admin.admin",
       "password": "adminpassword",
       "is_admin":true,
-      "savedDrinks":[],
-      "settings": {
-          "theme": "light"
-      }
+      "savedDrinks":[]
+
   }

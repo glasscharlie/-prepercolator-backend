@@ -11,9 +11,9 @@ Type.hasMany(Ingredient);
 Ingredient.belongsTo(Type)
 
 
-const drinkIngredients = sequelize.define('drinkIngredients', {
-    ammount: DataTypes.INTEGER
-  });
+// const drinkIngredients = sequelize.define('drinkIngredients', {
+//     ammount: DataTypes.INTEGER
+//   });
 
 Ingredient.belongsToMany(Drink, { through: 'drinkIngredients'});
 Drink.belongsToMany(Ingredient,{ through: 'drinkIngredients'})
