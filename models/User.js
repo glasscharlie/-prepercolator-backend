@@ -32,6 +32,12 @@ User.init (
                 len: [8],
             },
         },
+        is_admin: {
+          type: DataTypes.BOOLEAN,
+          allowNull: true,
+          defaultValue: false,
+      },
+
     },
     {
     hooks: {

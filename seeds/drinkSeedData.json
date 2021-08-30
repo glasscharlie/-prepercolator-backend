@@ -1,0 +1,19 @@
+[
+    {
+        "drink_name":"Cappuccino",
+        "is_vegan":false,
+        "unit_amount":16,
+        "is_steamed":true, 
+        "user_id":1,
+        "ingredientId":1
+    },
+    {
+        "drink_name":"Black",
+        "is_vegan":true,
+        "unit_amount":24,
+        "is_steamed":false,
+        "user_id":2,
+        "ingredientId":1
+    }
+
+]
