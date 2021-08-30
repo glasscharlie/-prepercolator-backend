@@ -16,4 +16,8 @@ Ingredient.hasOne(Type, {
     foreignKey: 'ingredient_type'
 });
 
+Drink.hasMany(Ingredient,{
+    foreignKey: 'Ingredient_id',
+});
+
 module.exports = { User, Drink, Ingredient, Type }
