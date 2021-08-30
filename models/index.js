@@ -10,8 +10,13 @@ Drink.belongsTo(User);
 Type.hasMany(Ingredient);
 Ingredient.belongsTo(Type)
 
-Ingredient.hasMany(Drink);
-Drink.belongsTo(Ingredient)
+
+// const drinkIngredients = sequelize.define('drinkIngredients', {
+//     ammount: DataTypes.INTEGER
+//   });
+
+Ingredient.belongsToMany(Drink, { through: 'drinkIngredients'});
+Drink.belongsToMany(Ingredient,{ through: 'drinkIngredients'})
 
 
 module.exports = { User, Drink, Ingredient, Type }

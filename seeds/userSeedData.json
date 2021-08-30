@@ -1,22 +1,9 @@
-[
-  {
-      "username": "God",
-      "email": "god@god.god",
-      "password": "password",
-      "is_admin":false,
-      "savedDrinks": [],
-      "settings": {
-          "theme": "dark"
-      }
-  },
+
   {
       "username": "admin",
       "email": "admin@admin.admin",
       "password": "adminpassword",
       "is_admin":true,
-      "savedDrinks":[],
-      "settings": {
-          "theme": "light"
-      }
+      "savedDrinks":[]
+
   }
-]
