@@ -44,15 +44,6 @@ User.init (
             return err;
           }
         },
-        beforeBulkCreate: async (newUser) => {
-          try {
-            newUser.password = await bcrypt.hash(newUser.password, 10);
-            return newUser;
-          } catch (err) {
-            console.log(err);
-            return err;
-          }
-        },
         beforeUpdate: async (updatedUser) => {
           try {
             updatedUser.password = await bcrypt.hash(

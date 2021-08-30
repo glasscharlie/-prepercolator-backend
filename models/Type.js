@@ -21,7 +21,8 @@ Type.init(
         },
     },
     {
-        sequelize,timestamps: false,
+        sequelize,
+        timestamps: false,
         freezeTableName: true,
         underscored: true,
         modelName: 'type'
