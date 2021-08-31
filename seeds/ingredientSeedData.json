@@ -2,61 +2,85 @@
     {
         "ingredient_name": "Espresso",
         "typeId": 1,
-        "is_vegan": true
+        "tier": "base",
+        "is_vegan": true,
+        "price_per_unit":1.00
     },
     {
         "ingredient_name": "Whole Milk",
         "typeId": 2,
-        "is_vegan": false
+        "tier": "main",
+        "is_vegan": false,
+        "price_per_unit":1.00
     },
     {
         "ingredient_name": "Skim Milk",
         "typeId": 2,
-        "is_vegan": false
+        "tier": "main",
+        "is_vegan": false,
+        "price_per_unit":1.00
     },
     {
         "ingredient_name": "2% Milk",
         "typeId": 2,
-        "is_vegan": false
+        "tier": "main",
+        "is_vegan": false,
+        "price_per_unit":1.00
     },
     {
         "ingredient_name": "Almond Milk",
         "typeId": 2,
-        "is_vegan": true
+        "tier": "main",
+        "is_vegan": true,
+        "price_per_unit":1.00
     },
     {
         "ingredient_name": "Oat Milk",
         "typeId": 2,
-        "is_vegan": true
+        "tier": "main",
+        "is_vegan": true,
+        "price_per_unit":1.00
     },
     {
         "ingredient_name": "Soy Milk",
         "typeId": 2,
-        "is_vegan": true
+        "tier": "flavor",
+        "is_vegan": true,
+        "price_per_unit":1.00
     },
     {
         "ingredient_name":"Chocolate Syrup",
         "typeId": 3,
-        "is_vegan":false
+        "tier": "flavor",
+        "is_vegan":false,
+        "price_per_unit":1.00
     },
     {
         "ingredient_name": "Vanilla Syrup",
         "typeId": 3,
-        "is_vegan": true
+        "tier": "flavor",
+        "is_vegan": true,
+        "price_per_unit":1.00
     },
     {
         "ingredient_name": "Vanilla Powder",
         "ingredient_type": 4,
-        "is_vegan": true
+        "tier": "flavor",
+        "is_vegan": true,
+        "price_per_unit":1.00
     },
     {
         "ingredient_name": "Chocolate Powder",
         "ingredient_type": 4,
-        "is_vegan": false
+        "tier": "flavor",
+        "is_vegan": false,
+        "price_per_unit":1.00
     },
     {
         "ingredient_name": "Milk Foam",
         "ingredient_type": 2,
-        "is_vegan": false
+        "tier": "topping",
+        "is_vegan": false,
+        "price_per_unit":1.00
     }
 ]

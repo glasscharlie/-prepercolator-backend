@@ -65,7 +65,7 @@ router.put('/:id', (req,res)=>{
            }
         }).then (db.drinkIngredients.update(req.body, {
             where:{
-                id:req.params.id,
+                Id:req.params.id,
                }
             }))
         .then(drink => {

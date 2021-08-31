@@ -4,16 +4,21 @@
         "is_vegan":false,
         "size":16,
         "is_steamed":true, 
-        "user_id":1,
-        "ingredientId":1
+        "userId":1,
+        "ingredients":1,
+        "ingredient_amount":2,
+        "price":7
+        
     },
     {
         "drink_name":"Black",
         "is_vegan":true,
         "size":24,
         "is_steamed":false,
-        "user_id":2,
-        "ingredientId":1
+        "userId":1,
+        "ingredients":1,
+        "ingredient_amount":3,
+        "price":3.50
     }
 
 ]

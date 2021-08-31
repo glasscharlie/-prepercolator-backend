@@ -6,7 +6,8 @@ const path = require('path');
 
 router.get("/",(req,res)=>{
     db.User.findAll({
-        include:[db.Drink]
+        include:[{model:db.Drink,
+        include:[db.Ingredient]}]
     }).then(users=>{
        res.json(users);
     }).catch(err=>{
@@ -31,9 +32,8 @@ router.post("/",(req,res)=>{
 
 router.get("/:id",(req,res)=>{
     db.User.findByPk(req.params.id,{
-        include:[
-            db.Drink
-       ]
+        include:[{model:db.Drink,
+        include:[db.Ingredient]}]
     }).then(users=>{
         res.json(users);
     }).catch(err=>{
@@ -85,3 +85,5 @@ router.delete("/:id",(req,res)=>{
 
 
 module.exports = router;
+
+

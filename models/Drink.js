@@ -30,6 +30,10 @@ Drink.init(
         allowNull: true,
         defaultValue: false,
     },
+    price: {
+        type: DataTypes.FLOAT,
+        allowNull: false,
+    }
 },
     {
     sequelize,
