@@ -42,6 +42,7 @@ router.put('/:id', async (req, res) => {
             res.status(404).json({ message: 'No Ingredient found with that id ):' });
             return;
         };
+        console.log(typeof ingredientUpdateData[1])
         res.status(200).json(ingredientUpdateData);
     } catch (err) {
         res.status(500).json(err);
@@ -76,5 +77,19 @@ router.delete('/:id', async (req, res) => {
         res.status(500).json(err);
     };
 });
+
+//get ingredient by tier
+router.get("/tier/:tier",(req,res)=>{
+    Ingredient.findAll({
+        where: {
+            tier: req.params.tier
+        },
+        include:[Type]
+    }).then(ingredient=>{
+        res.json(ingredient);
+    }).catch(err=>{
+        res.status(500).json(err);
+    })
+})
 
 module.exports = router;

@@ -15,18 +15,19 @@ Ingredient.init(
             type: DataTypes.STRING,
             allowNull: false
         },
-        // ingredient_type: {
-        //     type: DataTypes.INTEGER,
-        //     references: {
-        //         model: 'type',
-        //         key: 'id',
-        //     },
-        // },
+        tier: {
+            type: DataTypes.STRING,
+            allowNull: false,
+        },
         is_vegan: {
             type: DataTypes.BOOLEAN,
             allowNull: true,
             defaultValue: false,
         },
+        price_per_unit: {
+            type: DataTypes.FLOAT,
+            allowNull: false,
+        }
     },
     {
         sequelize,
