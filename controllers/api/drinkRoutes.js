@@ -15,9 +15,9 @@ router.get("/",(req,res)=>{
 router.post("/",(req,res)=>{
     db.Drink.create(req.body).then(drink=>{
         console.log(req.body.ingredients)
-        req.body.ingredients.forEach(element => {
-            drink.addIngredient(element)            
-        });
+        for (let i = 0; i < req.body.ingredients.length; i++) {
+            drink.addIngredient(req.body.ingredients[i], { through: { amount:req.body.ingredient_amount[i]} } )               
+        }
         res.json(drink);
     }).catch(err=>{
         console.log(err);
