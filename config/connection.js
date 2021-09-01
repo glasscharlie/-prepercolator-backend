@@ -12,7 +12,7 @@ if (process.env.JAWSDB_URL) {
     // process.env.DB_PASSWORD,
     'drinks_db',
     'root',
-    'password',
+    'ThisIsMySq1!',
     {
       host: 'localhost',
       dialect: 'mysql',
