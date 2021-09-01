@@ -1,11 +1,17 @@
 const express = require('express');
+const tokenAuth = require('../../middleware/tokenAuth');
 const router = express.Router();
 const db = require('../../models');
 
 
-router.get("/",(req,res)=>{
+router.get("/", tokenAuth, (req,res)=>{
     db.Drink.findAll({include:[db.Ingredient]}).then(drinks=>{
+       if(req.user.is_admin) {
        res.json(drinks);
+       }
+       else {
+        res.status(403).json({message:"Auth failed"})
+       }
     }).catch(err=>{
         console.log(err);
         res.status(500).json(err);
@@ -24,10 +30,10 @@ router.post("/",(req,res)=>{
     })
 })
 
-router.get("/:id",(req,res)=>{
+router.get("/user",tokenAuth, (req,res)=>{
     db.Drink.findAll({
         where: {
-            id:req.params.id
+            userId:req.user.id
         },
         include:[db.Ingredient]
     }).then(Drink=>{
