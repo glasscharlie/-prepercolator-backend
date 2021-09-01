@@ -4,8 +4,11 @@ const db = require('../../models');
 
 
 router.get("/",(req,res)=>{
-    db.Drink.findAll({include:[db.Ingredient]}).then(drinks=>{
-       res.json(drinks);
+    db.Order.findAll({
+        include:[{model:db.Drink,
+        include:[db.Ingredient]}]
+    }).then(orders=>{
+       res.json(orders);
     }).catch(err=>{
         console.log(err);
         res.status(500).json(err);
@@ -13,11 +16,12 @@ router.get("/",(req,res)=>{
 });
 
 router.post("/",(req,res)=>{
-    db.Drink.create(req.body).then(drink=>{
-        for (let i = 0; i < req.body.ingredients.length; i++) {
-            drink.addIngredient(req.body.ingredients[i], { through: { amount:req.body.ingredient_amount[i]} } )               
+    db.Order.create(req.body).then(order=>{
+        console.log(req.body.order)
+        for (let i = 0; i < req.body.drinks.length; i++) {
+            order.addDrink(req.body.drinks[i])               
         }
-        res.json(drink);
+        res.json(order);
     }).catch(err=>{
         console.log(err);
         res.status(500).json(err);
@@ -25,13 +29,15 @@ router.post("/",(req,res)=>{
 })
 
 router.get("/:id",(req,res)=>{
-    db.Drink.findAll({
+    db.Order.findAll({
         where: {
             id:req.params.id
         },
-        include:[db.Ingredient]
-    }).then(Drink=>{
-        res.json(Drink);
+        include:[{model:db.Drink,
+            include:[db.Ingredient]}]
+        
+    }).then(order=>{
+        res.json(order);
     }).catch(err=>{
         console.log(err);
         res.status(500).json(err);
@@ -39,12 +45,12 @@ router.get("/:id",(req,res)=>{
 })
 
 router.delete("/:id",(req,res)=>{
-    db.Drink.destroy({
+    db.Order.destroy({
         where:{
             id:req.params.id,
            }
-       }).then(delDrink=>{
-           if(delDrink){
+       }).then(delOrder=>{
+           if(delOrder){
                res.json({
                    message:"succesful delete!"
                });
@@ -58,19 +64,12 @@ router.delete("/:id",(req,res)=>{
 })
 
 router.put('/:id', (req,res)=>{
-    db.Drink.findByPk(req.params.id, {include:[db.Ingredient]})
-    .then(db.Drink.update(req.body, {
+    db.Order.findByPk(req.params.id, {include:[db.Drink]})
+    .then(db.Order.update(req.body, {
         where:{id:req.params.id}
         }))
-        .then( drink => {
-            console.log(drink)
-            for (let i = 0; i < drink.ingredients.length; i++) {
-                drink.removeIngredient(drink.ingredients[i])
-            }
-            for (let i = 0; i < req.body.ingredients.length; i++) {
-                drink.addIngredient(req.body.ingredients, {through: {amount: req.body.ingredient_amount[i]}})
-            }
-
+        .then( order => {
+            order.setDrinks(req.body.drinks)
             res.send('drink updated')
             }).catch(err=>{
                 console.log(err)
