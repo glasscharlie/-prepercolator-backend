@@ -29,6 +29,34 @@ router.get('/:id', async (req, res) => {
     };
 });
 
+//get Ingredient by type
+router.get("/type/:id",(req,res)=>{
+    Ingredient.findAll({
+        where: {
+            typeId: req.params.id
+        },
+        include:[Type]
+    }).then(ingredient=>{
+        res.json(ingredient);
+    }).catch(err=>{
+        res.status(500).json(err);
+    })
+})
+
+//get ingredient by tier
+router.get("/tier/:tier",(req,res)=>{
+    Ingredient.findAll({
+        where: {
+            tier: req.params.tier
+        },
+        include:[Type]
+    }).then(ingredient=>{
+        res.json(ingredient);
+    }).catch(err=>{
+        res.status(500).json(err);
+    })
+})
+
 // Update an Ingredient
 router.put('/:id', async (req, res) => {
     try {
@@ -78,18 +106,6 @@ router.delete('/:id', async (req, res) => {
     };
 });
 
-//get ingredient by tier
-router.get("/tier/:tier",(req,res)=>{
-    Ingredient.findAll({
-        where: {
-            tier: req.params.tier
-        },
-        include:[Type]
-    }).then(ingredient=>{
-        res.json(ingredient);
-    }).catch(err=>{
-        res.status(500).json(err);
-    })
-})
+
 
 module.exports = router;
