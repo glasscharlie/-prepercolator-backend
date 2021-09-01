@@ -1,14 +1,20 @@
 const express = require('express');
+const tokenAuth = require('../../middleware/tokenAuth');
 const router = express.Router();
 const db = require('../../models');
 
 
-router.get("/",(req,res)=>{
+router.get("/", tokenAuth, (req,res)=>{
     db.Order.findAll({
         include:[{model:db.Drink,
         include:[db.Ingredient]}]
     }).then(orders=>{
-       res.json(orders);
+        if(req.user.is_admin) {
+            res.json(orders);
+            }
+            else {
+             res.status(403).json({message:"Auth failed"})
+            }
     }).catch(err=>{
         console.log(err);
         res.status(500).json(err);
@@ -28,10 +34,12 @@ router.post("/",(req,res)=>{
     })
 })
 
-router.get("/:id",(req,res)=>{
+//token
+router.get("/user", tokenAuth,(req,res)=>{
+    console.log(req.user)
     db.Order.findAll({
         where: {
-            id:req.params.id
+            userId:req.user.id
         },
         include:[{model:db.Drink,
             include:[db.Ingredient]}]
@@ -44,7 +52,8 @@ router.get("/:id",(req,res)=>{
     })
 })
 
-router.delete("/:id",(req,res)=>{
+//token
+router.delete("/id", tokenAuth, (req,res)=>{
     db.Order.destroy({
         where:{
             id:req.params.id,
@@ -63,6 +72,7 @@ router.delete("/:id",(req,res)=>{
     })
 })
 
+//token
 router.put('/:id', (req,res)=>{
     db.Order.findByPk(req.params.id, {include:[db.Drink]})
     .then(db.Order.update(req.body, {

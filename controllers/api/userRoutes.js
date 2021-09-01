@@ -3,13 +3,20 @@ const router = express.Router();
 const bcrypt = require("bcrypt");
 const db = require('../../models');
 const path = require('path');
+const jwt = require("jsonwebtoken")
+const tokenAuth = require("../../middleware/tokenAuth")
 
-router.get("/",(req,res)=>{
+router.get("/", tokenAuth, (req,res)=>{
     db.User.findAll({
         include:[{model:db.Drink,
         include:[db.Ingredient]}]
     }).then(users=>{
-       res.json(users);
+        if(req.user.is_admin) {
+            res.json(users);
+        }
+        else {
+            res.status(403).json({message:"Auth failed"})
+        }
     }).catch(err=>{
         console.log(err);
         res.status(500).json(err);
@@ -18,20 +25,23 @@ router.get("/",(req,res)=>{
 
 router.post("/",(req,res)=>{
     db.User.create(req.body).then(user=>{
-        req.session.user = {
-            id:user.id,
+        const token = jwt.sign({
             username:user.username,
             email:user.email,
-        }
-        res.json(user);
+            id:user.id,
+            is_admin:user.is_admin
+        },process.env.JWT_SECRET, {
+            expiresIn:"2h"
+        })
+        res.json({token, user});
     }).catch(err=>{
         console.log(err);
         res.status(500).json(err);
     })
 })
 
-router.get("/:id",(req,res)=>{
-    db.User.findByPk(req.params.id,{
+router.get("/user",tokenAuth,(req,res)=>{
+    db.User.findByPk(req.user.id,{
         include:[{model:db.Drink,
         include:[db.Ingredient]}]
     }).then(users=>{
@@ -55,12 +65,15 @@ router.post("/login",(req,res)=>{
         }else {
             const isPasswordCorrect = bcrypt.compareSync(req.body.password,user.password);
             if(isPasswordCorrect){
-                req.session.user = {
-                    id:user.id,
+                const token = jwt.sign({
                     username:user.username,
-                    email:user.email
-                }
-                res.json(user);
+                    email:user.email,
+                    id:user.id,
+                    is_admin:user.is_admin
+                },process.env.JWT_SECRET, {
+                    expiresIn:"2h"
+                })
+                res.json({token, user});
             } else {
                 res.status(403).json({
                     message:"incorrect username or password, please try again"
@@ -70,10 +83,10 @@ router.post("/login",(req,res)=>{
     })
 })
 
-router.delete("/:id",(req,res)=>{
+router.delete("/delete",tokenAuth,(req,res)=>{
     db.User.destroy({
         where:{
-            id:req.params.id
+            id:req.user.id
         }
     }).then(user=>{
         res.json(user);
