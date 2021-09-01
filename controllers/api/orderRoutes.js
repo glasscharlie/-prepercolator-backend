@@ -34,7 +34,7 @@ router.post("/",(req,res)=>{
     })
 })
 
-//token
+
 router.get("/user", tokenAuth,(req,res)=>{
     console.log(req.user)
     db.Order.findAll({
@@ -52,8 +52,8 @@ router.get("/user", tokenAuth,(req,res)=>{
     })
 })
 
-//token
-router.delete("/id", tokenAuth, (req,res)=>{
+
+router.delete("/id", (req,res)=>{
     db.Order.destroy({
         where:{
             id:req.params.id,
@@ -72,20 +72,6 @@ router.delete("/id", tokenAuth, (req,res)=>{
     })
 })
 
-//token
-router.put('/:id', (req,res)=>{
-    db.Order.findByPk(req.params.id, {include:[db.Drink]})
-    .then(db.Order.update(req.body, {
-        where:{id:req.params.id}
-        }))
-        .then( order => {
-            order.setDrinks(req.body.drinks)
-            res.send('drink updated')
-            }).catch(err=>{
-                console.log(err)
-                res.status(500).json(err)
-            })
-            }) 
 
 
 
