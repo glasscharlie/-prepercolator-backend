@@ -5,7 +5,23 @@
         "tier": "base",
         "is_vegan": true,
         "icon": "bean-1",
-        "price_per_unit":1.00
+        "price_per_unit":0.75
+    },
+    {
+        "ingredient_name": "Dark Roast",
+        "typeId": 2,
+        "tier": "base",
+        "is_vegan": true,
+        "icon": "bean-2",
+        "price_per_unit":0.20
+    },
+    {
+        "ingredient_name": "Light Roast",
+        "typeId": 2,
+        "tier": "base",
+        "is_vegan": true,
+        "icon": "bean-2",
+        "price_per_unit":0.20
     },
     {
         "ingredient_name": "Blonde Roast",
@@ -13,7 +29,7 @@
         "tier": "base",
         "is_vegan": true,
         "icon": "bean-2",
-        "price_per_unit":1.00
+        "price_per_unit":0.20
     },
     {
         "ingredient_name": "Green Tea",
@@ -29,7 +45,7 @@
         "tier": "main",
         "is_vegan": false,
         "icon": "liquid-1",
-        "price_per_unit":1.00
+        "price_per_unit":0.15
     },
     {
         "ingredient_name": "Skim Milk",
@@ -37,7 +53,7 @@
         "tier": "main",
         "is_vegan": false,
         "icon": "liquid-1",
-        "price_per_unit":1.00
+        "price_per_unit":0.20
     },
     {
         "ingredient_name": "2% Milk",
@@ -45,7 +61,7 @@
         "tier": "main",
         "is_vegan": false,
         "icon": "liquid-1",
-        "price_per_unit":1.00
+        "price_per_unit":0.15
     },
     {
         "ingredient_name": "Almond Milk",
@@ -53,7 +69,7 @@
         "tier": "main",
         "is_vegan": true,
         "icon": "liquid-4",
-        "price_per_unit":1.00
+        "price_per_unit":0.35
     },
     {
         "ingredient_name": "Oat Milk",
@@ -61,7 +77,7 @@
         "tier": "main",
         "is_vegan": true,
         "icon": "liquid-2",
-        "price_per_unit":1.00
+        "price_per_unit":0.50
     },
     {
         "ingredient_name": "Soy Milk",
@@ -69,7 +85,7 @@
         "tier": "flavor",
         "is_vegan": true,
         "icon": "liquid-3",
-        "price_per_unit":1.00
+        "price_per_unit":0.35
     },
     {
         "ingredient_name":"Chocolate Syrup",
@@ -77,7 +93,23 @@
         "tier": "flavor",
         "is_vegan":false,
         "icon": "syrup-1",
-        "price_per_unit":1.00
+        "price_per_unit":0.20
+    },
+    {
+        "ingredient_name":"White Chocolate Syrup",
+        "typeId": 3,
+        "tier": "flavor",
+        "is_vegan":false,
+        "icon": "syrup-1",
+        "price_per_unit":0.20
+    },
+    {
+        "ingredient_name":"Caramel Syrup",
+        "typeId": 3,
+        "tier": "flavor",
+        "is_vegan":false,
+        "icon": "syrup-1",
+        "price_per_unit":0.25
     },
     {
         "ingredient_name": "Vanilla Syrup",
@@ -85,7 +117,7 @@
         "tier": "flavor",
         "is_vegan": true,
         "icon": "syrup-2",
-        "price_per_unit":1.00
+        "price_per_unit":0.25
     },
     {
         "ingredient_name": "Hazelnut Syrup",
@@ -93,7 +125,7 @@
         "tier": "flavor",
         "is_vegan": true,
         "icon": "syrup-1",
-        "price_per_unit":1.00
+        "price_per_unit":0.25
     },
     {
         "ingredient_name": "Chocolate Powder",
@@ -101,7 +133,7 @@
         "tier": "flavor",
         "is_vegan": false,
         "icon": "powder-1",
-        "price_per_unit":1.00
+        "price_per_unit":0.25
     },
     {
         "ingredient_name": "Vanilla Powder",
@@ -109,7 +141,7 @@
         "tier": "flavor",
         "is_vegan": true,
         "icon": "powder-2",
-        "price_per_unit":1.00
+        "price_per_unit":0.25
     },
     {
         "ingredient_name": "Milk Foam",
@@ -117,6 +149,30 @@
         "tier": "topping",
         "is_vegan": false,
         "icon": "",
-        "price_per_unit":1.00
+        "price_per_unit":0.15
+    },
+    {
+        "ingredient_name": "Cinnamon",
+        "typeId": 4,
+        "tier": "topping",
+        "is_vegan": false,
+        "icon": "",
+        "price_per_unit":0.25
+    },
+    {
+        "ingredient_name": "Nutmeg",
+        "typeId": 4,
+        "tier": "topping",
+        "is_vegan": false,
+        "icon": "",
+        "price_per_unit":0.25
+    },
+    {
+        "ingredient_name": "Whipped Cream",
+        "typeId": 3,
+        "tier": "topping",
+        "is_vegan": false,
+        "icon": "",
+        "price_per_unit":0.00
     }
 ]
