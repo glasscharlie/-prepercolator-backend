@@ -5,8 +5,8 @@
         "size":16,
         "is_steamed":true, 
         "userId":1,
-        "ingredients":1,
-        "ingredient_amount":2,
+        "ingredients":[1,2,5],
+        "ingredient_amount":[2,2,2],
         "price":7
         
     },

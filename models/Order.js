@@ -11,10 +11,6 @@ Order.init(
             primaryKey: true,
             autoIncrement: true
         },
-        order_name: {
-            type: DataTypes.STRING,
-            allowNull: false
-        },
         total_price: {
             type: DataTypes.FLOAT,
             allowNull: false,
