@@ -68,15 +68,16 @@ router.put('/:id', (req,res)=>{
     .then(db.Drink.update(req.body, {
         where:{id:req.params.id}
         }))
-        .then( drink => {
-            console.log(drink)
-            for (let i = 0; i < drink.ingredients.length; i++) {
-                drink.removeIngredient(drink.ingredients[i])
-            }
+        .then(async drink => {
+            console.log(drink.dataValues.userId)
+            await drink.setIngredients([])
             for (let i = 0; i < req.body.ingredients.length; i++) {
-                drink.addIngredient(req.body.ingredients, {through: {amount: req.body.ingredient_amount[i]}})
+                drink.addIngredient(req.body.ingredients[i], {through: {amount: req.body.ingredient_amount[i]}})
+                .catch(err=>{
+                    console.log(err)
+                    console.log(req.body.ingredients[i])
+                })
             }
-
             res.send('drink updated')
             }).catch(err=>{
                 console.log(err)

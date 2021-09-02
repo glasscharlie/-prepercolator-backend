@@ -64,21 +64,21 @@
     },
     {
         "ingredient_name": "Vanilla Powder",
-        "ingredient_type": 4,
+        "typeId": 4,
         "tier": "flavor",
         "is_vegan": true,
         "price_per_unit":1.00
     },
     {
         "ingredient_name": "Chocolate Powder",
-        "ingredient_type": 4,
+        "typeId": 4,
         "tier": "flavor",
         "is_vegan": false,
         "price_per_unit":1.00
     },
     {
         "ingredient_name": "Milk Foam",
-        "ingredient_type": 2,
+        "typeId": 2,
         "tier": "topping",
         "is_vegan": false,
         "price_per_unit":1.00

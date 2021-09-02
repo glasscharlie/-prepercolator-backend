@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const { Type } = require('../../models');
+const tokenAuth = require("../../middleware/tokenAuth");
 
 // Get all types (probably wont use this outside of testing)
 router.get('/', async (req, res) => {
@@ -27,6 +28,7 @@ router.get('/:id', async (req, res) => {
 
 // Update Type by id
 router.put('/:id', async (req, res) => {
+    if(req.user.is_admin) {
     try {
         // Requires full type data in body
         const updateTypeData = await Type.update(req.body, {
@@ -42,20 +44,30 @@ router.put('/:id', async (req, res) => {
     } catch (err) {
         res.status(500).json(err);
     };
+}
+else{
+    res.status(403).json({message:"Auth failed"})
+}
 });
 
 // Create new Type
 router.post('/', async (req, res) => {
+    if(req.user.is_admin) {
     try {
         const newTypeData = await Type.create(req.body);
         res.status(200).json(newTypeData);
     } catch (err) {
         res.status(500).json(err);
     };
+}
+else{
+    res.status(403).json({message:"Auth failed"})
+}
 });
 
 // Delete type by id
 router.delete('/:id', async (req, res) => {
+    if(req.user.is_admin) {
     try {
       const delTypeData = await Type.destroy({
           where: {
@@ -69,6 +81,10 @@ router.delete('/:id', async (req, res) => {
     } catch (err) {
         res.status(500).json(err);
     };
+}
+else{
+    res.status(403).json({message:"Auth failed"})
+}
 });
 
 
