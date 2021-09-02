@@ -13,9 +13,8 @@ const PORT = process.env.PORT || 3001;
 // Implementing cors support in case this is an issue with axios/express
 const cors = require('cors');
 const corsOptions = { credentials: true }
-
-
 app.use(cors(corsOptions));
+
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));

@@ -3,7 +3,7 @@ const tokenAuth = require('../../middleware/tokenAuth');
 const router = express.Router();
 const db = require('../../models');
 
-
+//Get all Orders
 router.get("/", tokenAuth, (req,res)=>{
     db.Order.findAll({
         include:[{model:db.Drink,
@@ -21,9 +21,9 @@ router.get("/", tokenAuth, (req,res)=>{
     })
 });
 
+//Create new Order
 router.post("/",(req,res)=>{
     db.Order.create(req.body).then(order=>{
-        console.log(req.body.order)
         for (let i = 0; i < req.body.drinks.length; i++) {
             order.addDrink(req.body.drinks[i])               
         }
@@ -34,9 +34,8 @@ router.post("/",(req,res)=>{
     })
 })
 
-
+//Get orders by logged in user ID
 router.get("/user", tokenAuth,(req,res)=>{
-    console.log(req.user)
     db.Order.findAll({
         where: {
             userId:req.user.id
@@ -52,7 +51,7 @@ router.get("/user", tokenAuth,(req,res)=>{
     })
 })
 
-
+//Delete an order
 router.delete("/id", (req,res)=>{
     db.Order.destroy({
         where:{

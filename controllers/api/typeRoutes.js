@@ -2,7 +2,7 @@ const router = require('express').Router();
 const { Type } = require('../../models');
 const tokenAuth = require("../../middleware/tokenAuth");
 
-// Get all types (probably wont use this outside of testing)
+// Get all types
 router.get('/', async (req, res) => {
     try {
         const typeData = await Type.findAll({});
@@ -12,7 +12,7 @@ router.get('/', async (req, res) => {
     };
 });
 
-// Get single type by id
+// Get single type by ID
 router.get('/:id', async (req, res) => {
     try {
         const singleTypeData = await Type.findByPk(req.params.id);
@@ -26,7 +26,7 @@ router.get('/:id', async (req, res) => {
     };
 });
 
-// Update Type by id
+// Update Type by ID
 router.put('/:id', async (req, res) => {
     if(req.user.is_admin) {
     try {
@@ -65,7 +65,7 @@ else{
 }
 });
 
-// Delete type by id
+// Delete type by ID
 router.delete('/:id', async (req, res) => {
     if(req.user.is_admin) {
     try {
