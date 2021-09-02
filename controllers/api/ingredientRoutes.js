@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const { Ingredient, Type } = require('../../models');
+const tokenAuth = require("../../middleware/tokenAuth")
 
 // Get All Ingredients
 router.get('/', async (req, res) => {
@@ -58,7 +59,8 @@ router.get("/tier/:tier",(req,res)=>{
 })
 
 // Update an Ingredient
-router.put('/:id', async (req, res) => {
+router.put('/:id',tokenAuth, async (req, res) => {
+    if(req.user.is_admin) {
     try {
         const ingredientUpdateData = await Ingredient.update(req.body, {
             where: {
@@ -75,10 +77,15 @@ router.put('/:id', async (req, res) => {
     } catch (err) {
         res.status(500).json(err);
     };
+}
+else{
+    res.status(403).json({message:"Auth failed"})
+}
 });
 
 // Create new Ingredient
-router.post('/', async (req, res) => {
+router.post('/', tokenAuth, async (req, res) => {
+    if(req.user.is_admin) {
     try {
         // Requires full ingredient data to be passed in req.body
         const newIngredientData = await Ingredient.create(req.body)
@@ -86,10 +93,15 @@ router.post('/', async (req, res) => {
     } catch (err) {
         res.status(500).json(err);
     };
+}
+else{
+    res.status(403).json({message:"Auth failed"})
+}
 });
 
 // Delete ingredient by id
-router.delete('/:id', async (req, res) => {
+router.delete('/:id', tokenAuth, async (req, res) => {
+    if(req.user.is_admin) {
     try {
         const ingredientDelData = await Ingredient.destroy({
             where: {
@@ -101,9 +113,14 @@ router.delete('/:id', async (req, res) => {
             return;
         };
         res.status(200).json(ingredientDelData);
-    } catch (err) {
-        res.status(500).json(err);
+    }
+ catch (err) {
+    res.status(500).json(err);
     };
+}
+else{
+    res.status(403).json({message:"Auth failed"})
+}
 });
 
 
