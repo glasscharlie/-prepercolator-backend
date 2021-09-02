@@ -10,13 +10,13 @@ const seedDatabase = async () => {
 
     await sequelize.sync({ force: true });
 
-    await User.create(userSeedData);
+    await User.bulkCreate(userSeedData)
 
     await Type.bulkCreate(typeSeedData);
 
     await Ingredient.bulkCreate(ingredientSeedData);
 
-    await Drink.bulkCreate(drinkSeedData);
+    await Drink.create(drinkSeedData);
 
     process.exit(0);
 };

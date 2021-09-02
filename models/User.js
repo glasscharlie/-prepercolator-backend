@@ -62,6 +62,13 @@ User.init (
             return err;
           }
         },
+        beforeBulkCreate: async  (newUserData)=>{
+          const hashedPasswords = newUserData.map(newUser=>{
+              newUser.password = bcrypt.hashSync(newUser.password,10);
+              return newUser;
+          })
+          return hashedPasswords;
+      }
       },
       
 

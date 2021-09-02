@@ -1,4 +1,4 @@
-[
+
     {
         "drink_name":"Cappuccino",
         "is_vegan":false,
@@ -9,16 +9,6 @@
         "ingredient_amount":2,
         "price":7
         
-    },
-    {
-        "drink_name":"Black",
-        "is_vegan":true,
-        "size":24,
-        "is_steamed":false,
-        "userId":1,
-        "ingredients":[],
-        "ingredient_amount":[],
-        "price":3.50
     }
 
-]
+

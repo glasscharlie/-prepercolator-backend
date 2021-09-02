@@ -1,8 +1,36 @@
 
-  {
+  [{
       "username": "admin",
       "email": "admin@admin.admin",
       "password": "adminpassword",
       "is_admin":true
 
-  }
+  },
+  {
+    "username": "charlie",
+    "email": "charlie@charlie.charlie",
+    "password": "password",
+    "is_admin":true
+
+},
+{
+  "username": "jack",
+  "email": "jack@jack.jack",
+  "password": "password",
+  "is_admin":true
+
+},
+{
+  "username": "lucio",
+  "email": "lucio@lucio.lucio",
+  "password": "password",
+  "is_admin":true
+
+},
+  {
+    "username": "connor",
+    "email": "connor@connor.connor",
+    "password": "password",
+    "is_admin":true
+
+}]
