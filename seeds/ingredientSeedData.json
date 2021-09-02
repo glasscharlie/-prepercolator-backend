@@ -4,6 +4,23 @@
         "typeId": 1,
         "tier": "base",
         "is_vegan": true,
+        "icon": "bean-1",
+        "price_per_unit":1.00
+    },
+    {
+        "ingredient_name": "Blonde Roast",
+        "typeId": 2,
+        "tier": "base",
+        "is_vegan": true,
+        "icon": "bean-2",
+        "price_per_unit":1.00
+    },
+    {
+        "ingredient_name": "Green Tea",
+        "typeId": 2,
+        "tier": "base",
+        "is_vegan": true,
+        "icon": "leaf-2",
         "price_per_unit":1.00
     },
     {
@@ -11,6 +28,7 @@
         "typeId": 2,
         "tier": "main",
         "is_vegan": false,
+        "icon": "liquid-1",
         "price_per_unit":1.00
     },
     {
@@ -18,6 +36,7 @@
         "typeId": 2,
         "tier": "main",
         "is_vegan": false,
+        "icon": "liquid-1",
         "price_per_unit":1.00
     },
     {
@@ -25,6 +44,7 @@
         "typeId": 2,
         "tier": "main",
         "is_vegan": false,
+        "icon": "liquid-1",
         "price_per_unit":1.00
     },
     {
@@ -32,6 +52,7 @@
         "typeId": 2,
         "tier": "main",
         "is_vegan": true,
+        "icon": "liquid-4",
         "price_per_unit":1.00
     },
     {
@@ -39,6 +60,7 @@
         "typeId": 2,
         "tier": "main",
         "is_vegan": true,
+        "icon": "liquid-2",
         "price_per_unit":1.00
     },
     {
@@ -46,6 +68,7 @@
         "typeId": 2,
         "tier": "flavor",
         "is_vegan": true,
+        "icon": "liquid-3",
         "price_per_unit":1.00
     },
     {
@@ -53,6 +76,7 @@
         "typeId": 3,
         "tier": "flavor",
         "is_vegan":false,
+        "icon": "syrup-1",
         "price_per_unit":1.00
     },
     {
@@ -60,13 +84,15 @@
         "typeId": 3,
         "tier": "flavor",
         "is_vegan": true,
+        "icon": "syrup-2",
         "price_per_unit":1.00
     },
     {
-        "ingredient_name": "Vanilla Powder",
-        "typeId": 4,
+        "ingredient_name": "Hazelnut Syrup",
+        "typeId": 3,
         "tier": "flavor",
         "is_vegan": true,
+        "icon": "syrup-1",
         "price_per_unit":1.00
     },
     {
@@ -74,6 +100,15 @@
         "typeId": 4,
         "tier": "flavor",
         "is_vegan": false,
+        "icon": "powder-1",
+        "price_per_unit":1.00
+    },
+    {
+        "ingredient_name": "Vanilla Powder",
+        "typeId": 4,
+        "tier": "flavor",
+        "is_vegan": true,
+        "icon": "powder-2",
         "price_per_unit":1.00
     },
     {
@@ -81,6 +116,7 @@
         "typeId": 2,
         "tier": "topping",
         "is_vegan": false,
+        "icon": "",
         "price_per_unit":1.00
     }
 ]

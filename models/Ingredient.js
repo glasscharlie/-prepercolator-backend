@@ -24,6 +24,10 @@ Ingredient.init(
             allowNull: true,
             defaultValue: false,
         },
+        icon: {
+            type: DataTypes.STRING,
+            allowNull: true
+        },
         price_per_unit: {
             type: DataTypes.FLOAT,
             allowNull: false,
