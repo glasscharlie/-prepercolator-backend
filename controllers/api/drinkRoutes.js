@@ -3,7 +3,7 @@ const tokenAuth = require('../../middleware/tokenAuth');
 const router = express.Router();
 const db = require('../../models');
 
-
+//Get all Drinks
 router.get("/", tokenAuth, (req,res)=>{
     db.Drink.findAll({include:[db.Ingredient]}).then(drinks=>{
        if(req.user.is_admin) {
@@ -18,6 +18,7 @@ router.get("/", tokenAuth, (req,res)=>{
     })
 });
 
+//Create new Drink
 router.post("/",(req,res)=>{
     db.Drink.create(req.body).then(drink=>{
         for (let i = 0; i < req.body.ingredients.length; i++) {
@@ -30,6 +31,7 @@ router.post("/",(req,res)=>{
     })
 })
 
+//get Drink by logged in users ID
 router.get("/user",tokenAuth, (req,res)=>{
     db.Drink.findAll({
         where: {
@@ -44,6 +46,7 @@ router.get("/user",tokenAuth, (req,res)=>{
     })
 })
 
+//delete drink by ID
 router.delete("/:id",(req,res)=>{
     db.Drink.destroy({
         where:{
@@ -63,19 +66,18 @@ router.delete("/:id",(req,res)=>{
     })
 })
 
+//Update drink by ID
 router.put('/:id', (req,res)=>{
     db.Drink.findByPk(req.params.id, {include:[db.Ingredient]})
     .then(db.Drink.update(req.body, {
         where:{id:req.params.id}
         }))
         .then(async drink => {
-            console.log(drink.dataValues.userId)
             await drink.setIngredients([])
             for (let i = 0; i < req.body.ingredients.length; i++) {
                 drink.addIngredient(req.body.ingredients[i], {through: {amount: req.body.ingredient_amount[i]}})
                 .catch(err=>{
                     console.log(err)
-                    console.log(req.body.ingredients[i])
                 })
             }
             res.send('drink updated')
@@ -84,7 +86,6 @@ router.put('/:id', (req,res)=>{
                 res.status(500).json(err)
             })
             }) 
-
 
 
 module.exports = router;

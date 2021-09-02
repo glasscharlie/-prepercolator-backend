@@ -6,6 +6,7 @@ const path = require('path');
 const jwt = require("jsonwebtoken")
 const tokenAuth = require("../../middleware/tokenAuth")
 
+//Get all Users
 router.get("/", tokenAuth, (req,res)=>{
     db.User.findAll({
         include:[{model:db.Drink,
@@ -23,6 +24,7 @@ router.get("/", tokenAuth, (req,res)=>{
     })
 });
 
+//Create new User
 router.post("/",(req,res)=>{
     db.User.create(req.body).then(user=>{
         const token = jwt.sign({
@@ -40,6 +42,7 @@ router.post("/",(req,res)=>{
     })
 })
 
+//get User information by logged in User ID
 router.get("/user",tokenAuth,(req,res)=>{
     db.User.findByPk(req.user.id,{
         include:[{model:db.Drink,
@@ -52,6 +55,7 @@ router.get("/user",tokenAuth,(req,res)=>{
     })
 })
 
+//login with username and pass
 router.post("/login",(req,res)=>{
     db.User.findOne({
         where:{
@@ -83,6 +87,7 @@ router.post("/login",(req,res)=>{
     })
 })
 
+//delete User with logged in User ID
 router.delete("/delete",tokenAuth,(req,res)=>{
     db.User.destroy({
         where:{

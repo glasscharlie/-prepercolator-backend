@@ -2,7 +2,7 @@ const router = require('express').Router();
 const { Ingredient, Type } = require('../../models');
 const tokenAuth = require("../../middleware/tokenAuth")
 
-// Get All Ingredients
+// Get all Ingredients
 router.get('/', async (req, res) => {
     try {
         const ingredientData = await Ingredient.findAll({
@@ -14,7 +14,7 @@ router.get('/', async (req, res) => {
     };
 });
 
-// Get Ingredient by id
+// Get Ingredient by ID
 router.get('/:id', async (req, res) => {
     try {
         const singleIngredientData = await Ingredient.findByPk(req.params.id, {
@@ -30,7 +30,7 @@ router.get('/:id', async (req, res) => {
     };
 });
 
-//get Ingredient by type
+//get Ingredient by Type
 router.get("/type/:id",(req,res)=>{
     Ingredient.findAll({
         where: {
@@ -44,7 +44,7 @@ router.get("/type/:id",(req,res)=>{
     })
 })
 
-//get ingredient by tier
+//get Ingredient by Tier
 router.get("/tier/:tier",(req,res)=>{
     Ingredient.findAll({
         where: {
@@ -72,7 +72,6 @@ router.put('/:id',tokenAuth, async (req, res) => {
             res.status(404).json({ message: 'No Ingredient found with that id ):' });
             return;
         };
-        console.log(typeof ingredientUpdateData[1])
         res.status(200).json(ingredientUpdateData);
     } catch (err) {
         res.status(500).json(err);
@@ -87,7 +86,6 @@ else{
 router.post('/', tokenAuth, async (req, res) => {
     if(req.user.is_admin) {
     try {
-        // Requires full ingredient data to be passed in req.body
         const newIngredientData = await Ingredient.create(req.body)
         res.status(200).json(newIngredientData);
     } catch (err) {
@@ -99,7 +97,7 @@ else{
 }
 });
 
-// Delete ingredient by id
+// Delete Ingredient by ID
 router.delete('/:id', tokenAuth, async (req, res) => {
     if(req.user.is_admin) {
     try {
