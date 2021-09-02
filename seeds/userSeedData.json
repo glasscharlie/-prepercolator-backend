@@ -24,7 +24,7 @@
   "username": "lucio",
   "email": "lucio@lucio.lucio",
   "password": "password",
-  "is_admin":true
+  "is_admin":false
 
 },
   {
