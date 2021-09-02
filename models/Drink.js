@@ -34,14 +34,16 @@ Drink.init(
         type: DataTypes.FLOAT,
         allowNull: false,
     }
-},
-    {
+},  
+{
+
     sequelize,
     timestamps: false,
     freezeTableName: true,
     underscored: true,
     modelName: 'drink',
-    }
+    
+}
 )
 
 module.exports = Drink;
