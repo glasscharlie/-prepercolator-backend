@@ -37,7 +37,8 @@ router.get("/user",tokenAuth, (req,res)=>{
         where: {
             userId:req.user.id
         },
-        include:[db.Ingredient]
+        include:[{model:db.Ingredient,
+            include:[db.Type]}]
     }).then(Drink=>{
         res.json(Drink);
     }).catch(err=>{
