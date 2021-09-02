@@ -2,23 +2,91 @@
     {
         "drink_name":"Cappuccino",
         "is_vegan":false,
-        "size":16,
+        "size":12,
         "is_steamed":true, 
         "userId":1,
         "ingredients":[1,2,5],
         "ingredient_amount":[2,2,2],
-        "price":7
+        "price":3.25
         
     },
     {
         "drink_name":"Black",
         "is_vegan":true,
-        "size":24,
+        "size":16,
+        "is_steamed":true,
+        "userId":1,
+        "ingredients":[2],
+        "ingredient_amount":[16],
+        "price":2.25
+    },
+    {
+        "drink_name":"Light Roast with Cream",
+        "is_vegan":false,
+        "size":12,
+        "is_steamed":true,
+        "userId":1,
+        "ingredients":[2,6],
+        "ingredient_amount":[2,4],
+        "price":2.75
+    },{
+        "drink_name":"Latte",
+        "is_vegan":false,
+        "size":12,
+        "is_steamed":true,
+        "userId":1,
+        "ingredients":[1,6],
+        "ingredient_amount":[2,8],
+        "price":3.25
+    }
+    ,{
+        "drink_name":"Black and White Mocha",
+        "is_vegan":false,
+        "size":16,
+        "is_steamed":true,
+        "userId":1,
+        "ingredients":[1,6,12,13],
+        "ingredient_amount":[2,8,2,2],
+        "price":4.15
+    }
+    ,{
+        "drink_name":"Oat Milk Latte",
+        "is_vegan":false,
+        "size":12,
         "is_steamed":false,
         "userId":1,
-        "ingredients":[],
-        "ingredient_amount":[],
-        "price":3.50
+        "ingredients":[1,8],
+        "ingredient_amount":[2,8],
+        "price":4.50
     }
-
+    ,{
+        "drink_name":"Soy Milk Iced Latte",
+        "is_vegan":false,
+        "size":12,
+        "is_steamed":false,
+        "userId":1,
+        "ingredients":[1,9],
+        "ingredient_amount":[2,8],
+        "price":4.25
+    }
+    ,{
+        "drink_name":"Almond Milk Mocha",
+        "is_vegan":false,
+        "size":16,
+        "is_steamed":false,
+        "userId":1,
+        "ingredients":[1,9,12],
+        "ingredient_amount":[3,8,2],
+        "price": 4.25
+    }
+    ,{
+        "drink_name":"Con Panne",
+        "is_vegan":false,
+        "size":8,
+        "is_steamed":false,
+        "userId":1,
+        "ingredients":[1,21],
+        "ingredient_amount":[2,1],
+        "price":1.25
+    }
 ]
