@@ -82,7 +82,7 @@
     {
         "ingredient_name": "Soy Milk",
         "typeId": 2,
-        "tier": "flavor",
+        "tier": "main",
         "is_vegan": true,
         "icon": "liquid-3",
         "price_per_unit":0.35

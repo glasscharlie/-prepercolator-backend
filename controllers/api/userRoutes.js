@@ -87,6 +87,20 @@ router.post("/login",(req,res)=>{
     })
 })
 
+//update User
+router.put('/update', tokenAuth, (req,res)=>{
+    db.User.update(req.body, {
+        where:{id:req.user.id},
+        individualHooks: true,
+    }).then(drink => {
+            res.json(drink)
+        }).catch(err=>{
+            console.log(err)
+            res.status(500).json(err)
+        })
+})
+            
+
 //delete User with logged in User ID
 router.delete("/delete",tokenAuth,(req,res)=>{
     db.User.destroy({

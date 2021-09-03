@@ -18,14 +18,22 @@ const seedDatabase = async () => {
     await Ingredient.bulkCreate(ingredientSeedData);
 
     await Drink.create(drinkSeedData[0]).then(async drink => {
-        ingredients = [1,2,12]
-        ingredient_amount = [5,3,1]
+        ingredients = [1,6,16]
+        ingredient_amount = [5,5,5]
         for (let i = 0; i < ingredients.length; i++) {
             await drink.addIngredient(ingredients[i], { through: { amount:ingredient_amount[i]} } )            
         }
     });
 
-    await Drink.create(drinkSeedData[1])
+    await Drink.create(drinkSeedData[1]).then(async drink => {
+        ingredients = [1,4,16]
+        ingredient_amount = [3,8,1]
+        for (let i = 0; i < ingredients.length; i++) {
+            await drink.addIngredient(ingredients[i], { through: { amount:ingredient_amount[i]} } )            
+        }
+    });
+
+    await Drink.create(drinkSeedData[2])
 
     await Order.create(orderSeedData).then(async order => {
         drinks = [1,2,2]
